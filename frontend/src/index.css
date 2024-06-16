@@ -1,0 +1,47 @@
+.app-container {
+  display: flex;
+  justify-content: center;  /* Centers content horizontally */
+  align-items: center;      /* Centers content vertically */
+  height: 100vh;            /* Full viewport height */
+  text-align: center;       /* Centers text within the content */
+}
+
+.cursor {
+  animation: blink 0.7s steps(2, start) infinite;
+  border-right: 2px solid black;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+.cursor {
+  animation: blink 0.7s steps(2, start) infinite;
+  border-right: 2px solid black;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.slide-up-fade {
+  animation: slideUpFade 0.5s ease forwards;
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px); /* Adjust slide distance as needed */
+  }
+}
+
+
