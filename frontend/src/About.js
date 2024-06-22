@@ -1,10 +1,14 @@
 import React from 'react';
+import './About.css';
 
 const About = () => {
   return (
-    <div>
-      <h1>About</h1>
-      <p>This is the About page.</p>
+    <div className='about'>
+        <div>
+        <h1>Hi.</h1>
+        <p>Currently a rising senior at the University of Minnesota Twin-Cities studying computer science</p>
+
+        </div>
     </div>
   );
 }
