@@ -1,9 +1,92 @@
 .about {
-    background-color: #f0f0f0;
-    color: #000000;
-    height: 100px;
-    display: flex;
-    margin-left: 12%;
-    margin-right: 12%;
-  
-  }
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  padding-top: 10%;
+  padding-bottom: 20%;
+  border-radius: 10px;
+  padding-left: 10%;
+  align-items: center;
+  display: flex;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+#aboutElements p {
+  color: #555;
+  line-height: 1.6;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+#aboutElements {
+  margin-left: 30px;
+}
+
+#aboutElements ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+
+}
+
+#aboutElements li {
+  color: #555;
+  line-height: 2.5;
+}
+
+#aboutElements p:first-of-type {
+  font-weight: bold;
+}
+
+#aboutPic {
+  flex: 0 0 auto;
+}
+
+#aboutPic img {
+  margin-left: 40%;
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about.visible #aboutElements,
+.about.visible #aboutPic {
+  opacity: 1;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+#aboutElements, #aboutPic {
+  opacity: 0; /* Hidden by default */
+}
+
+.about h1 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 10px;
+  letter-spacing: .15em;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden;    /* Hide text outside width */
+  width: 0;            /* Start with zero width */
+  border-right: 2px solid orange; /* Blinking cursor */
+  animation: typing 3s steps(30, end) forwards, blink 0.5s step-end infinite;
+}
+
+.about.finished h1 {
+  border-right: none; /* Remove cursor when finished */
+}
