@@ -9,6 +9,13 @@
   align-items: center;
   display: flex;
 }
+
+.about {
+  flex-wrap: wrap; /* Allow elements to wrap to the next line */
+  justify-content: center; /* Center elements on the main axis */
+  align-items: center; /* Center elements on the cross axis */
+}
+
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
@@ -40,8 +47,7 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-  font-size: 20px;
-
+  font-size: 1rem; /* Adjust font size relative to the root font size */
 }
 
 #aboutElements li {
@@ -89,4 +95,38 @@
 
 .about.finished h1 {
   border-right: none; /* Remove cursor when finished */
+}
+
+
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+  #aboutElements {
+    margin-left: 0; /* Align text centrally for smaller screens */
+    text-align: center;
+  }
+  #aboutPic img {
+    margin-left: 0; /* Center the image */
+    width: 150px; /* Adjust the image size */
+    height: 150px;
+  }
+  .about h1 {
+    font-size: 1.5em; /* Reduce heading size */
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 5px; /* Further reduce padding */
+  }
+  #aboutElements {
+    font-size: 16px; /* Smaller font size for text */
+  }
+  #aboutPic img {
+    width: 100px; /* Smaller image size */
+    height: 100px;
+  }
 }
