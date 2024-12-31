@@ -21,8 +21,8 @@
 
 /* Scrollable container */
 .experience-scroll {
-  max-height: 300px; /* Limit the height */
-  overflow-y: auto; /* Add vertical scrolling */
+  max-height: 300px;
+  overflow-y: auto;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;

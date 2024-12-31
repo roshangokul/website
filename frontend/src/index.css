@@ -12,18 +12,8 @@
   margin-left: 2px;
 }
 
-body{
+body {
   background-color: wheat;
-}
-@keyframes blink {
-  to {
-    visibility: hidden;
-  }
-}
-.cursor {
-  animation: blink 0.7s steps(2, start) infinite;
-  border-right: 2px solid black;
-  margin-left: 2px;
 }
 
 @keyframes blink {
@@ -46,5 +36,3 @@ body{
     transform: translateY(-20px); /* Adjust slide distance as needed */
   }
 }
-
-
