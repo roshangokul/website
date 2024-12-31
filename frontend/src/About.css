@@ -12,7 +12,7 @@
 
 .about {
   flex-wrap: wrap; /* Allow elements to wrap to the next line */
-  justify-content: center; /* Center elements on the main axis */
+  justify-content: left; /* Center elements on the main axis */
   align-items: center; /* Center elements on the cross axis */
 }
 

@@ -1,12 +1,22 @@
 .experience-section {
   padding: 20px;
   text-align: center;
+  display: flex;
 }
 
 .section-title {
   font-size: 2em;
   margin-bottom: 20px;
   color: #333;
+}
+
+.experience-header {
+  text-align: center;
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 3%;
+  letter-spacing: .15em;
+  white-space: nowrap;
 }
 
 /* Scrollable container */
@@ -36,8 +46,4 @@
 
 .experience-item p {
   margin: 5px 0;
-}
-/* Smooth scrolling for the container */
-.experience-scroll {
-  scroll-behavior: smooth;
 }

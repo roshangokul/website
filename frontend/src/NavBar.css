@@ -5,17 +5,17 @@
 
 body {
   font-family: 'Open Sans', sans-serif; /* or 'Open Sans', sans-serif; */
-  background-color: #f0f0f0;
+  background-color: white;
 }
 #aboutMe {
-  background-color: #f0f0f0;
+  background-color: white;
   color: #f0f0f0;
   height: 300px;
 }
 
 #navbar {
-  background-color: #f0f0f0;
-  color: #f0f0f0;
+  background-color: white;
+  color: white;
   height: 100px;
   display: flex;
   align-items: center; /* Optional: Aligns items vertically in the middle */
@@ -37,7 +37,7 @@ body {
 
 .navButton{
   color: black;
-  background-color: #f0f0f0;
+  background-color: white;
   border: none;
   height: 60px;
   gap: 60%;
@@ -48,7 +48,7 @@ body {
 }
 
 .section {
-  background-color: #f0f0f0;
+  background-color: white;
 }
 
 
