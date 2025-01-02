@@ -27,7 +27,9 @@ const Experience = () => {
   <VerticalTimelineElement
     className="vertical-timeline-element--work"
     date="May 2024 - Dec 2024"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+    contentStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
+    contentArrowStyle={{ borderRight: '7px solid  rgb(16, 204, 82)' }}
+    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
     // icon={<WorkIcon />}
   >
     <h3 className="vertical-timeline-element-title">Software Engineer Co-Op @ Chewy</h3>
@@ -38,8 +40,10 @@ const Experience = () => {
   </VerticalTimelineElement>
   <VerticalTimelineElement
     className="vertical-timeline-element--work"
-    date="May 2023 - Aug 2023"
+    contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+    contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
     iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+    date="May 2023 - Aug 2023"
     // icon={<WorkIcon />}
   >
     <h3 className="vertical-timeline-element-title">Software Development Intern @ ImageTrend</h3>
@@ -51,7 +55,9 @@ const Experience = () => {
   <VerticalTimelineElement
     className="vertical-timeline-element--education"
     date="2023-2025"
-    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+    contentStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
+    contentArrowStyle={{ borderRight: '7px solid  rgb(16, 204, 82)' }}
+    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
   >
     <h3 className="vertical-timeline-element-title">Undergraduate Teaching Assistant</h3>
     <p>
@@ -60,11 +66,6 @@ const Experience = () => {
         <ul>CSCI 1133 - Introduction to Computing and Programming Concepts</ul>
     </p>
   </VerticalTimelineElement>
- 
-  
-  <VerticalTimelineElement
-    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-  />
 </VerticalTimeline>
 </div>
   );

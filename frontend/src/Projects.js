@@ -6,7 +6,7 @@ const Projects = () => {
     <div className='projects'>
       <section id="projects"></section>
         <div>
-        <h1>Projects</h1>
+        {/* <h1>Projects</h1> */}
         <p></p>
 
         </div>
