@@ -2,6 +2,7 @@ import React from 'react';
 import './Experience.css';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import chewyLogo from './images/chewy.png';
 
 
 const Experience = () => {
@@ -16,7 +17,8 @@ const Experience = () => {
     contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
     date="July 2025"
     iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    // icon={<WorkIcon />}
+    icon={<img src={chewyLogo} alt="Chewy" style={{ width: '100%', height: '100%', borderRadius: '50%' }} />}
+      
   >
     <h3 className="vertical-timeline-element-title">Incoming Software Engineer @ Chewy</h3>
     <h4 className="vertical-timeline-element-subtitle">Bellevue, WA</h4>
@@ -30,7 +32,8 @@ const Experience = () => {
     contentStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
     contentArrowStyle={{ borderRight: '7px solid  rgb(16, 204, 82)' }}
     iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-    // icon={<WorkIcon />}
+    icon={<img src={chewyLogo} alt="Chewy" style={{ width: '100%', height: '100%'}} />}
+      >
   >
     <h3 className="vertical-timeline-element-title">Software Engineer Co-Op @ Chewy</h3>
     <h4 className="vertical-timeline-element-subtitle">Minneapolis, MN & Bellevue, WA</h4>
