@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#aboutMe {
+  background-color: white;
+  color: #f0f0f0;
+  height: 300px;
+}
+
+#navbar {
+  background-color: white;
+  color: black;
+  height: 80px;
+  display: flex;
+  align-items: center; /* Aligns items vertically in the middle */
+  justify-content: center;
+  padding: 0 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+/* Mobile responsive navbar */
+@media (max-width: 768px) {
+  #navbar {
+    height: 60px;
+    font-size: 16px;
+    padding: 0 5px;
+  }
+}
+
+#navRight {
+  gap: 30px; /* Adds space between items */
+}
+
+#navName {
+  color: black;
+}
+
+.navButton {
+  color: black;
+  background-color: white;
+  border: none;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.navButton a {
+  letter-spacing: 0.15em;
+}
+
+.navButton img {
+  width: 24px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .navButton img {
+    width: 28px;
+  }
+}
+
+a {
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  margin: 0 8px; /* Unified left and right margins */
+}
+
+@media (max-width: 768px) {
+  a {
+    margin: 0 4px; /* Reduced spacing on mobile */
+    letter-spacing: 0.1em; /* Less letter spacing on mobile */
+  }
+}
+
+.section {
+  background-color: white;
+}

@@ -1,0 +1,94 @@
+.about {
+  display: flex;
+  flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  margin: 5%; /* Reduced margin for smaller screens */
+  padding: 2rem; /* Relative padding */
+  border-radius: 10px;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+}
+
+#aboutElements {
+  flex: 1 1 300px; /* Flexible with a minimum width */
+  margin: 1rem; /* Adjust margins to prevent overflow */
+}
+
+#aboutElements ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem; /* Relative font size */
+}
+
+#aboutElements li {
+  line-height: 1.6; /* Line height for readability */
+  color: #555;
+}
+
+#aboutPic {
+  flex: 1 1 200px; /* Flexible with a minimum width */
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutPic img {
+  width: 200px; /* Scaled-down width */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  #aboutPic img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .about h1 {
+    font-size: 1.2rem; /* Smaller on mobile */
+    white-space: normal; /* Allow wrapping on mobile */
+    animation: none; /* Disable typing animation on mobile */
+    border-right: none; /* Remove cursor on mobile */
+  }
+  
+  #aboutElements ul {
+    font-size: 0.9rem; /* Smaller text on mobile */
+  }
+  
+  #aboutElements li {
+    margin-bottom: 0.8rem; /* More spacing between points */
+  }
+}
+
+.about h1 {
+  color: #333;
+  font-size: 1.5rem; /* Scaled font size for smaller screens */
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em; /* Reduced letter spacing for readability */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  border-right: 2px solid orange;
+  animation: typing 3s steps(30, end) forwards, blink 0.5s step-end infinite;
+}
+
+.about.visible {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.about.finished h1 {
+  border-right: none;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
