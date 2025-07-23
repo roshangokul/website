@@ -27,8 +27,10 @@ body {
 @media (max-width: 768px) {
   #navbar {
     height: 60px;
-    font-size: 16px;
-    padding: 0 5px;
+    font-size: 14px;
+    padding: 0 8px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
 
@@ -60,7 +62,12 @@ body {
 
 @media (max-width: 768px) {
   .navButton img {
-    width: 28px;
+    width: 24px;
+  }
+  
+  .navButton {
+    height: 50px;
+    padding: 8px 12px;
   }
 }
 
@@ -72,11 +79,35 @@ a {
 
 @media (max-width: 768px) {
   a {
-    margin: 0 4px; /* Reduced spacing on mobile */
-    letter-spacing: 0.1em; /* Less letter spacing on mobile */
+    margin: 0 2px; /* Further reduced spacing on mobile */
+    letter-spacing: 0.05em; /* Minimal letter spacing on mobile */
+    font-size: 14px;
   }
 }
 
 .section {
   background-color: white;
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  #navbar {
+    height: 50px;
+    font-size: 12px;
+    padding: 0 4px;
+  }
+  
+  .navButton {
+    height: 40px;
+    padding: 4px 8px;
+  }
+  
+  .navButton img {
+    width: 20px;
+  }
+  
+  a {
+    margin: 0 1px;
+    font-size: 12px;
+  }
 }
