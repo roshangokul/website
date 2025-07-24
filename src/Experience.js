@@ -9,7 +9,7 @@ const Experience = () => {
   return (
     <div className='experience'>
       <section id="experience-section"></section>
-      <h1 className='experience-header'>My Journey</h1>
+      <h1 className='experience-header'>Engineering</h1>
     <VerticalTimeline>
   <VerticalTimelineElement
     className="vertical-timeline-element--work"

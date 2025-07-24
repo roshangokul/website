@@ -26,7 +26,6 @@ const About = () => {
   <div id="aboutElements">
         <h1>Hey there!👋🏾 I'm Roshan, a software engineer.</h1>
         <ul>
-          <li>I am currently a senior majoring in <b>Computer Science at the University of Minnesota Twin-Cities</b>.</li>
           <li><b>Tools I am proficient with:</b> Git, GitHub, Splunk, Datadog, Terraform, Jenkins, Gradle.</li>
           <li><b>Frameworks and Libraries:</b> React.js, Node.js, Spring, Express.js, Java Spring Boot.</li>
           <li><b>Programming Languages:</b> Python, Java, C#, C++, JavaScript, C.</li>
