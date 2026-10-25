@@ -2,7 +2,6 @@ import React from 'react';
 import './Experience.css';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import chewyLogo from './images/chewy.png';
 
 
 const Experience = () => {
