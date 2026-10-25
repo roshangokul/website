@@ -1,49 +1,53 @@
-.experience-section {
-  padding: 20px;
-  text-align: center;
-  display: flex;
+.experience {
+  padding-block: var(--space-section);
+  border-top: var(--border-thin);
 }
 
-.section-title {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #333;
+#experience-section {
+  scroll-margin-top: 5rem;
 }
 
 .experience-header {
-  text-align: center;
-  color: #333;
-  font-size: 2em;
-  margin-bottom: 3%;
-  letter-spacing: .15em;
-  white-space: nowrap;
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  margin: 0 auto var(--space-6);
+  color: var(--color-ink);
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
 }
 
-/* Scrollable container */
-.experience-scroll {
-  max-height: 300px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #f9f9f9;
+.vertical-timeline {
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  padding-block: 0;
 }
 
-/* Style each experience item */
-.experience-item {
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.vertical-timeline-element-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.25;
 }
 
-.experience-item h3 {
-  font-size: 1.5em;
-  margin-bottom: 5px;
+.vertical-timeline-element-subtitle {
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
-.experience-item p {
-  margin: 5px 0;
+.vertical-timeline-element-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem !important;
+  letter-spacing: 0.04em;
+}
+
+.vertical-timeline-element-content p {
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+@media (max-width: 48rem) {
+  .experience-header {
+    margin-bottom: var(--space-5);
+  }
 }

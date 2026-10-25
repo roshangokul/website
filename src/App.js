@@ -1,7 +1,6 @@
 import NavBar from './NavBar';
 import About from './About';
 import Experience from './Experience';
-import Projects from './Projects';
 
 /**
  * App is the root component for the portfolio.
@@ -26,7 +25,6 @@ function App() {
       <main>
         <About />
         <Experience />
-        <Projects />
       </main>
     </>
   );

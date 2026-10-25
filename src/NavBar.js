@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import githubLogo from './images/github-mark.png';
 import linkedinLogo from './images/LI-In-Bug.png';
 import './NavBar.css';

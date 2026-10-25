@@ -1,98 +1,69 @@
 .about {
-  display: flex;
-  flex-wrap: wrap; /* Allows content to wrap on smaller screens */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  margin: 5%; /* Reduced margin for smaller screens */
-  padding: 2rem; /* Relative padding */
-  border-radius: 10px;
-  font-family: 'Times New Roman', Times, serif, sans-serif;
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  margin-inline: auto;
+  padding-block: var(--space-section);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
 }
 
 #aboutElements {
-  flex: 1 1 300px; /* Flexible with a minimum width */
-  margin: 1rem; /* Adjust margins to prevent overflow */
+  grid-column: 1 / span 8;
 }
 
 #aboutElements ul {
-  list-style-type: none;
-  padding: 0;
   margin: 0;
-  font-size: 1rem; /* Relative font size */
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+  font-size: 1rem;
+  list-style: none;
 }
 
 #aboutElements li {
-  line-height: 1.6; /* Line height for readability */
-  color: #555;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+#aboutElements b {
+  color: var(--color-ink);
+  font-weight: 600;
 }
 
 #aboutPic {
-  flex: 1 1 200px; /* Flexible with a minimum width */
-  margin: 1rem;
+  grid-column: 9 / -1;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+#aboutPic a {
+  border-radius: var(--radius-round);
 }
 
 #aboutPic img {
-  width: 200px; /* Scaled-down width */
-  height: 200px;
-  border-radius: 50%;
+  width: clamp(12rem, 22vw, 17rem);
+  aspect-ratio: 1;
+  border: var(--border-thin);
+  border-radius: var(--radius-round);
   object-fit: cover;
 }
 
-@media (max-width: 768px) {
-  .about {
-    margin: 2% 2% 2% 2%;
-    padding: 1rem 1.5rem 1rem 1rem;
-    flex-direction: column;
-  }
-  
-  #aboutElements {
-    margin: 0.5rem;
-    text-align: center;
-  }
-  
-  #aboutPic {
-    margin: 0.5rem;
-    order: -1; /* Move picture above text on mobile */
-  }
-  
-  #aboutPic img {
-    width: 190px;
-    height: 190px;
-  }
-  
-  .about h1 {
-    font-size: 1.1rem;
-    white-space: normal;
-    animation: none;
-    border-right: none;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  #aboutElements ul {
-    font-size: 0.85rem;
-    text-align: left;
-  }
-  
-  #aboutElements li {
-    margin-bottom: 1rem;
-    line-height: 1.5;
-  }
-}
-
 .about h1 {
-  color: #333;
-  font-size: 1.5rem; /* Scaled font size for smaller screens */
-  margin-bottom: 1rem;
-  letter-spacing: 0.1em; /* Reduced letter spacing for readability */
-  white-space: nowrap;
-  overflow: hidden;
   width: 100%;
-  border-right: 2px solid orange;
-  animation: typing 3s steps(30, end) forwards, blink 0.5s step-end infinite;
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+  border-right: 2px solid var(--color-signal);
+  color: var(--color-ink);
+  /* The current typing effect requires one unbroken line. Keep its temporary
+     size within this eight-column area until Phase 3 replaces the hero. */
+  font-size: clamp(1.65rem, 2.2vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  animation: typing 3s steps(30, end) forwards,
+    about-caret-blink 0.5s step-end infinite;
 }
 
 .about.visible {
@@ -105,26 +76,51 @@
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
+/* A component-specific animation name avoids collisions with animations from
+   other stylesheets, because ordinary CSS imports are global. */
+@keyframes about-caret-blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
-/* Very small screens */
-@media (max-width: 480px) {
+@media (max-width: 48rem) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  #aboutElements,
+  #aboutPic {
+    grid-column: 1;
+  }
+
+  #aboutPic {
+    grid-row: 1;
+  }
+
   .about h1 {
-    font-size: 1rem;
+    font-size: clamp(1.75rem, 9vw, 3rem);
+    white-space: normal;
+    animation: none;
+    border-right: none;
   }
-  
+}
+
+@media (max-width: 30rem) {
   #aboutElements ul {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
-  
+
   #aboutPic img {
-    width: 100px;
-    height: 100px;
+    width: 9rem;
   }
 }

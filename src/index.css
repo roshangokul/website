@@ -1,38 +1,139 @@
-.app-container {
-  display: flex;
-  justify-content: center;  /* Centers content horizontally */
-  align-items: center;      /* Centers content vertically */
-  height: 100vh;            /* Full viewport height */
-  text-align: center;       /* Centers text within the content */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Color tokens describe purpose rather than a particular component. This
+     keeps components consistent and lets us evolve the palette in one place. */
+  --color-canvas: #f4f1e8;
+  --color-surface: #fffdf7;
+  --color-ink: #151515;
+  --color-muted: #64615a;
+  --color-line: #cfc9bd;
+  --color-accent: #2457ff;
+  --color-signal: #ff5c35;
+
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-section: clamp(4rem, 8vw, 7rem);
+
+  --content-width: 75rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+  --border-thin: 1px solid var(--color-line);
+  --radius-round: 999px;
+  --motion-fast: 180ms ease;
+
+  color-scheme: light;
 }
 
-.cursor {
-  animation: blink 0.7s steps(2, start) infinite;
-  border-right: 2px solid black;
-  margin-left: 2px;
+/* border-box includes padding and borders inside an element's declared width,
+   which makes responsive layouts much easier to reason about. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background-color: wheat;
+  min-width: 20rem;
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-@keyframes blink {
-  to {
-    visibility: hidden;
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-surface);
+}
+
+/* :focus-visible appears for keyboard navigation without forcing a focus ring
+   after every mouse click. Never remove outlines without a replacement. */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* These shared primitives give future sections the same alignment and rhythm.
+   Components can combine them instead of inventing new widths and margins. */
+.page-container {
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-section);
+  border-top: var(--border-thin);
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.section-label {
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Motion is optional presentation. Users who request reduced motion should get
+   the same content and functionality without animated travel or blinking. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-}
 
-.slide-up-fade {
-  animation: slideUpFade 0.5s ease forwards;
-}
-
-@keyframes slideUpFade {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px); /* Adjust slide distance as needed */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
