@@ -1,0 +1,25 @@
+# Dependencies are downloaded from package.json/package-lock.json.
+# Each developer and deployment environment installs its own compatible copy.
+node_modules/
+
+# Create React App generates this directory with `npm run build`.
+# Vercel should build it from source rather than receive a committed copy.
+/build/
+
+# Local environment variables can contain machine-specific settings or secrets.
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Local Vercel project metadata and credentials.
+.vercel/
+
+# Package-manager and test output.
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+
+# macOS Finder metadata.
+.DS_Store
