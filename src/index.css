@@ -95,6 +95,12 @@ img {
   min-height: 100vh;
 }
 
+/* The skip link intentionally moves focus to the main landmark. A large focus
+   outline around the entire page would not help identify the new location. */
+#main-content:focus {
+  outline: none;
+}
+
 /* These shared primitives give future sections the same alignment and rhythm.
    Components can combine them instead of inventing new widths and margins. */
 .page-container {

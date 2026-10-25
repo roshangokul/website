@@ -22,8 +22,8 @@ const About = () => {
   }, []);
 
   return (
-    <div className={`about ${visible ? 'visible' : ''} ${finishedTyping ? 'finished' : ''}`}>
-  <div id="aboutElements">
+    <section id="about" className={`about ${visible ? 'visible' : ''} ${finishedTyping ? 'finished' : ''}`}>
+      <div id="aboutElements">
         <h1>Hey there!👋🏾 I'm Roshan, a software engineer.</h1>
         <ul>
           <li><b>Tools I am proficient with:</b> Git, GitHub, Splunk, Datadog, Terraform, Jenkins, Gradle.</li>
@@ -36,7 +36,7 @@ const About = () => {
           <img src={roshanPic} alt="profPic" />
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -22,7 +22,9 @@ function App() {
 
       {/* <main> gives browsers and assistive technology a semantic boundary
           around the page's primary content; it does not add visual styling. */}
-      <main>
+      {/* tabIndex makes <main> programmatically focusable when the skip link is
+          used, while -1 keeps it out of the normal Tab sequence. */}
+      <main id="main-content" tabIndex="-1">
         <About />
         <Experience />
       </main>
