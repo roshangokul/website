@@ -1,38 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap');
 
 :root {
-  /* Color tokens describe purpose rather than a particular component. This
-     keeps components consistent and lets us evolve the palette in one place. */
-  --color-canvas: #f4f1e8;
-  --color-surface: #fffdf7;
-  --color-ink: #151515;
-  --color-muted: #64615a;
-  --color-line: #cfc9bd;
-  --color-accent: #2457ff;
-  --color-signal: #ff5c35;
-
-  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
-
-  --space-1: 0.5rem;
-  --space-2: 0.75rem;
-  --space-3: 1rem;
-  --space-4: 1.5rem;
-  --space-5: 2rem;
-  --space-6: 3rem;
-  --space-section: clamp(4rem, 8vw, 7rem);
-
-  --content-width: 75rem;
-  --page-gutter: clamp(1rem, 4vw, 3rem);
-  --border-thin: 1px solid var(--color-line);
-  --radius-round: 999px;
-  --motion-fast: 180ms ease;
-
-  color-scheme: light;
+  --color-canvas: #f5f2ea;
+  --color-ink: #1c1d1a;
+  --color-muted: #686961;
+  --color-line: #cbc8be;
+  --color-accent: #2f6545;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+  --page-width: 68rem;
+  --page-gutter: clamp(1.25rem, 5vw, 3.5rem);
+  --section-space: clamp(4.75rem, 9vw, 8.5rem);
+  --transition: 160ms ease;
+  color: var(--color-ink);
+  background: var(--color-canvas);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* border-box includes padding and borders inside an element's declared width,
-   which makes responsive layouts much easier to reason about. */
 *,
 *::before,
 *::after {
@@ -46,23 +33,12 @@ html {
 
 body {
   min-width: 20rem;
+  min-height: 100vh;
   margin: 0;
   background: var(--color-canvas);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-  margin-top: 0;
-}
-
+body,
 button,
 input,
 textarea,
@@ -70,66 +46,384 @@ select {
   font: inherit;
 }
 
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd {
+  margin-top: 0;
+}
+
 a {
   color: inherit;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
 ::selection {
+  color: var(--color-canvas);
   background: var(--color-accent);
-  color: var(--color-surface);
 }
 
-/* :focus-visible appears for keyboard navigation without forcing a focus ring
-   after every mouse click. Never remove outlines without a replacement. */
 :focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 4px;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 5px;
 }
 
 #root {
   min-height: 100vh;
 }
 
-/* The skip link intentionally moves focus to the main landmark. A large focus
-   outline around the entire page would not help identify the new location. */
 #main-content:focus {
   outline: none;
 }
 
-/* These shared primitives give future sections the same alignment and rhythm.
-   Components can combine them instead of inventing new widths and margins. */
-.page-container {
-  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+.page-width {
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--page-width));
   margin-inline: auto;
 }
 
-.section {
-  padding-block: var(--space-section);
-  border-top: var(--border-thin);
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.65rem 0.9rem;
+  color: var(--color-canvas);
+  background: var(--color-accent);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transform: translateY(-180%);
+  transition: transform var(--transition);
 }
 
-.layout-grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: var(--space-4);
+.skip-link:focus {
+  transform: translateY(0);
 }
 
+.site-header {
+  position: relative;
+}
+
+.site-header__inner {
+  min-height: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.site-brand {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-decoration: none;
+}
+
+.primary-nav {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  list-style: none;
+}
+
+.primary-nav a,
+.site-footer a {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.primary-nav a:hover,
+.site-footer a:hover {
+  color: var(--color-ink);
+}
+
+.hero {
+  min-height: min(42rem, calc(100svh - 5.5rem));
+  padding-block: clamp(6rem, 13vw, 10rem) var(--section-space);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.eyebrow,
 .section-label {
+  margin-bottom: 1.35rem;
   color: var(--color-muted);
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-weight: 400;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
-/* Motion is optional presentation. Users who request reduced motion should get
-   the same content and functionality without animated travel or blinking. */
+.hero h1 {
+  max-width: 13ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(3rem, 7vw, 5.75rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.065em;
+}
+
+.hero__description {
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+  color: #30312d;
+  font-size: clamp(1.15rem, 2.3vw, 1.65rem);
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+
+.hero__actions,
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.text-link {
+  padding-block: 0.25rem;
+  border-bottom: 1px solid var(--color-accent);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.text-link:hover {
+  color: var(--color-accent);
+}
+
+.section {
+  padding-block: var(--section-space);
+  border-top: 1px solid var(--color-line);
+  scroll-margin-top: 2rem;
+}
+
+.section-heading {
+  margin-bottom: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+.section h2 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4.2vw, 3.35rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.experience-list {
+  border-top: 1px solid var(--color-line);
+}
+
+.experience-item {
+  padding-block: clamp(2rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(11rem, 16rem);
+  gap: clamp(2rem, 6vw, 6rem);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.experience-item h3 {
+  margin-bottom: 0.25rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.experience-item__role {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.experience-item__summary {
+  max-width: 42rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.experience-item__meta {
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+.experience-item__meta p {
+  margin-bottom: 0.2rem;
+}
+
+.technology-list {
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  list-style: none;
+}
+
+.technology-list li:not(:last-child)::after {
+  margin-left: 1rem;
+  content: '·';
+}
+
+.about {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.75fr) minmax(0, 1.6fr);
+  gap: clamp(3rem, 8vw, 8rem);
+}
+
+.about .section-heading {
+  margin-bottom: 0;
+}
+
+.about__content {
+  max-width: 43rem;
+}
+
+.about__content > p {
+  color: var(--color-muted);
+  line-height: 1.75;
+}
+
+.about__statement {
+  margin-bottom: 1.5rem;
+  color: var(--color-ink) !important;
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  line-height: 1.5 !important;
+  letter-spacing: -0.035em;
+}
+
+.toolkit {
+  margin-top: 3rem;
+  margin-bottom: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.toolkit > div {
+  padding-block: 1rem;
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.toolkit dt {
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.toolkit dd {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.contact {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.contact h2 {
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+}
+
+.site-footer {
+  padding-block: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.site-footer p {
+  margin-bottom: 0;
+}
+
+.site-footer a {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 46rem) {
+  .site-header__inner {
+    min-height: 4.5rem;
+  }
+
+  .primary-nav {
+    gap: 0.85rem;
+  }
+
+  .primary-nav a {
+    font-size: 0.75rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 6rem;
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .experience-item__meta {
+    grid-row: 1;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .contact {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 31rem) {
+  .site-header__inner {
+    padding-block: 1.25rem;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .primary-nav {
+    gap: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.85rem, 15vw, 4rem);
+  }
+
+  .toolkit > div {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -138,8 +432,7 @@ img {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
 }

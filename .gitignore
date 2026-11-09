@@ -2,9 +2,9 @@
 # Each developer and deployment environment installs its own compatible copy.
 node_modules/
 
-# Create React App generates this directory with `npm run build`.
-# Vercel should build it from source rather than receive a committed copy.
+# Production output is generated from source during deployment.
 /build/
+/dist/
 
 # Local environment variables can contain machine-specific settings or secrets.
 .env.local
