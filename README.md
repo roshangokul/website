@@ -31,6 +31,9 @@ npm run build
 
 Preview the production build:
 
+## Citations
+Thanks Codex for the help :)
+
 ```bash
 npm run preview
 ```
