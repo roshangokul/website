@@ -14,13 +14,15 @@ function About() {
       </div>
       <div className="about__content">
         <p className="about__statement">
-          I’m interested in building dependable systems and understanding how software behaves at
-          scale.
+          I like understanding what happens after code leaves my editor—how services communicate,
+          grow, and stay dependable.
         </p>
         <p>
-          My recent work has centered on backend services and the infrastructure around production
-          software. I also enjoy the teaching side of engineering—making difficult ideas easier to
-          understand and use.
+          That curiosity has pulled me toward backend development and distributed systems, while
+          teaching computer science and mathematics has shaped how I work with others. I value
+          thoughtful questions, clear explanations, and software people can reason about. Lately,
+          I’ve also been exploring machine learning and where it fits into the systems I enjoy
+          building.
         </p>
         <dl className="toolkit">
           {toolkit.map(([category, tools]) => (
