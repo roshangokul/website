@@ -268,11 +268,31 @@ a {
 }
 
 .experience-item {
+  position: relative;
   padding-block: clamp(2rem, 4vw, 3rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(11rem, 16rem);
   gap: clamp(2rem, 6vw, 6rem);
   border-bottom: 1px solid var(--color-line);
+  transition: background-color var(--transition);
+}
+
+.experience-item::before {
+  position: absolute;
+  inset-block: 1rem;
+  left: -0.75rem;
+  width: 2px;
+  background: var(--color-accent);
+  content: '';
+  opacity: 0.4;
+  transform: scaleY(0.18);
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+}
+
+.experience-item[data-kind='teaching']::before {
+  background: var(--color-energy);
 }
 
 .experience-item h3 {
@@ -318,12 +338,32 @@ a {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   list-style: none;
+  transition: color var(--transition);
 }
 
 .technology-list li:not(:last-child)::after {
   margin-left: 1rem;
   color: var(--color-energy);
   content: '·';
+}
+
+@media (hover: hover) {
+  .experience-item:hover {
+    background: rgb(47 101 69 / 4%);
+  }
+
+  .experience-item[data-kind='teaching']:hover {
+    background: rgb(154 104 29 / 5%);
+  }
+
+  .experience-item:hover::before {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .experience-item:hover .technology-list {
+    color: var(--color-ink);
+  }
 }
 
 .about {

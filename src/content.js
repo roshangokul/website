@@ -36,6 +36,7 @@ export const experience = [
   {
     company: 'Undergraduate Teaching Assistant',
     role: 'Computer Science and Mathematics',
+    kind: 'teaching',
     dates: '2023 — 2025',
     location: '',
     summary:

@@ -2,7 +2,7 @@ import { experience } from './content';
 
 function ExperienceItem({ item }) {
   return (
-    <article className="experience-item">
+    <article className="experience-item" data-kind={item.kind ?? 'engineering'}>
       <div className="experience-item__main">
         <h3>{item.company}</h3>
         <p className="experience-item__role">{item.role}</p>
