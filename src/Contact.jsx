@@ -7,8 +7,11 @@ function Contact() {
   return (
     <section className="section page-width contact" id="contact" aria-labelledby="contact-title">
       <div>
-        <p className="section-label">Contact</p>
-        <h2 id="contact-title">Let’s connect.</h2>
+        <p className="section-label">Say hello</p>
+        <h2 id="contact-title">Have something interesting in mind?</h2>
+        <p className="contact__description">
+          I’m always happy to talk about software, systems, or a problem worth thinking through.
+        </p>
       </div>
       <div className="contact__links">
         {contactLinks.map((link) => (
