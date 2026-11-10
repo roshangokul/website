@@ -15,17 +15,22 @@ function Contact() {
         </p>
       </div>
       <div className="contact__links">
-        {contactLinks.map((link) => (
-          <a
-            className="text-link"
-            href={link.href}
-            key={link.label}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {link.label} <span aria-hidden="true">↗</span>
-          </a>
-        ))}
+        {contactLinks.map((link) => {
+            const isEmail = link.href.startsWith('mailto:');
+
+            return (
+              <a
+                className="text-link"
+                href={link.href}
+                key={link.label}
+                target={isEmail ? undefined : '_blank'}
+                rel={isEmail ? undefined : 'noreferrer'}
+              >
+                {link.label}{' '}
+                <span aria-hidden="true">{isEmail ? '→' : '↗'}</span>
+              </a>
+            );
+          })}
       </div>
     </section>
   );
