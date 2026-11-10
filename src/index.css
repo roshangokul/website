@@ -204,6 +204,10 @@ a {
   gap: 1.75rem;
 }
 
+.contact__links {
+  justify-content: center;
+}
+
 .text-link {
   position: relative;
   padding-block: 0.25rem;
@@ -421,7 +425,7 @@ a {
 
 .contact {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 3rem;
 }
@@ -489,6 +493,10 @@ a {
   .contact {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .contact__links {
+    justify-content: flex-start;
   }
 }
 
