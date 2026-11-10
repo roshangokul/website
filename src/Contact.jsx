@@ -1,6 +1,7 @@
 const contactLinks = [
   { label: 'GitHub', href: 'https://github.com/roshangokul' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/roshangokul/' },
+  { label: 'Email Me', href: 'mailto:roshangokul@gmail.com' }
 ];
 
 function Contact() {
