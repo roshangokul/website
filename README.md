@@ -31,11 +31,12 @@ npm run build
 
 Preview the production build:
 
-## Citations
-Thanks Codex for the help :)
 
 ```bash
 npm run preview
 ```
 
 Production output is written to `dist/`.
+
+## Citations
+Thanks Codex for the help :)
