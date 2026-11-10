@@ -39,4 +39,4 @@ npm run preview
 Production output is written to `dist/`.
 
 ## Citations
-Thanks Codex for the help :)
+Designed and built through an iterative process with assistance from OpenAI Codex.
